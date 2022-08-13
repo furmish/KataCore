@@ -27,11 +27,7 @@ public static class AsciiCharSequence implements CharSequence {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : byteSequence) {
-            sb.append((char) b);
-        }
-        return sb.toString();
+        return new String(byteSequence);
     }
 }
 
