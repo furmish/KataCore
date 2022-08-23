@@ -22,17 +22,13 @@ public class Solution {
         System.out.println(array.get(0));
     }
     public static class DynamicArray<T> {
-        private static final int DEFAULT_CAPACITY = 10;
-        private Object[] array;
+        private T[] array = (T[]) new Object[10];
         private int size;
-        public DynamicArray() {
-            this.array = new Object[DEFAULT_CAPACITY];
-        }
         public T get(int index) {
             if (index < 0 || index >= size) {
                 throw new ArrayIndexOutOfBoundsException();
             }
-            return (T) array[index];
+            return array[index];
         }
 
         public void add(T el) {
@@ -44,9 +40,6 @@ public class Solution {
         }
 
         public void remove(int index) {
-            if (index < 0 || index >= size) {
-                throw new ArrayIndexOutOfBoundsException();
-            }
             final int newSize;
             if ((newSize = size - 1) > index) {
                 System.arraycopy(array, index + 1, array, index, newSize - index);
